@@ -31,11 +31,15 @@ export class CountriesComponent implements OnInit {
   }
 
   getAllCountries(){
+    this.spinner = true;
    this.sc.getCountries().subscribe((res:any)=>{
      if(res){
+      this.spinner = false;
       this.countries = res;
       this.paginationCountries.push(...this.countries.slice(0,20));
       this.sorting();
+     }else{
+      this.spinner = false;
      }
    })
   }
