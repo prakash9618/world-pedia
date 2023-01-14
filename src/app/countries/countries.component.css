@@ -1,0 +1,166 @@
+.nav-bar{
+    background-color: #064885;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+}
+.footer{
+    background: #272727;
+    padding: 3rem 0 1rem 0;
+}
+.sub-nav-bar,.sub-footer{
+    width: 75%;
+    margin: auto;
+}
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.coutries-container{
+    width: 76.4%;
+    margin: 0rem auto 2rem auto;
+}
+.search-bar .btn,.viewAllData .btn,.show-more{
+    background-color:#064885;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 0.9rem;
+}
+.viewAllData .btn{
+  position: relative;
+  top: -19px;
+}
+.sub-footer .btn{
+    background-color: #064885 !important;
+    border-color: #064885 !important;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.8rem 2.1rem;
+    margin-top: 1.1rem;
+}
+.sub-footer input{
+    padding: 0.8rem;
+    font-weight: 500;
+}
+.sub-footer input::placeholder{
+    font-size: 18px;
+    font-weight: 500;
+}
+.sub-footer div:last-child{
+    width: 35%;
+}
+.sub-nav-bar div:last-child p,.sub-footer div:last-child p{
+  margin: 0;
+  line-height: 1.2;
+  color: rgb(239, 238, 238);
+}
+.search-bar{
+    width: 75%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 8px 1px #5555;
+    padding: 1.5rem;
+    position: relative;
+    top: -45px;
+}
+.form-control{
+    font-weight: 500 !important;
+}
+.card-body{
+    font-size: 17px;
+    font-weight: 700;
+}
+.card{
+    padding: 0.7rem;
+}
+.footer div:last-child,.footer div a{
+    color: rgb(160, 159, 159);
+    font-weight: 500;
+    font-size: 18px;
+}
+.footer .sub-footer header{
+    position: relative;
+    top: 30px;
+}
+.footer .sub-footer:last-child{
+    margin-top: 3.5rem;
+}
+.btn-close{
+    font-size: 13px;
+    opacity: 1;
+}
+.modal h5,p{
+    font-size: 17px;
+}
+
+.card-container{
+    padding: 1.5rem .6rem 0 .6rem;
+}
+.modal-body .row p{
+    margin-bottom: .3rem;
+}
+
+@media (min-width: 650px) and (max-width: 768px){
+    .sub-footer div:last-child{
+        width: 50%;
+    }
+}
+
+@media (min-width: 160px) and (max-width: 650px){
+    .footer{
+        padding-top:1rem;
+    }
+    .sub-footer div:last-child{
+        width: 100%;
+        text-align: unset !important;
+        padding-top: 1rem;
+    }
+    .sub-footer img{
+        position: static !important;
+    }
+    .sub-footer{
+        display: block !important;
+        margin-top: 1.5rem !important;
+    }
+    .coutries-container{
+        width: 90% !important;
+        margin-top: 0 !important;
+    }
+    .card-container:first-child{
+        padding-top: 0 !important;
+    }
+    .sub-nav-bar{
+        display: block !important;
+        width: 85%;
+    }
+    .sub-nav-bar div:last-child{
+        text-align: unset !important;
+        padding-top: 1rem;
+    }
+    .nav-bar{
+        padding-top: 2rem;
+        padding-bottom: 4.5rem;
+    }
+    .search-bar{
+        padding: 1rem;
+        width: 85%;
+    }
+    .search-bar .btn{
+        padding: 0 0.8rem;
+        font-size: 13px;
+        margin-left: .6rem;
+    }
+    .modal-body .row .col-3{
+       width: 30% !important;
+    }
+    .modal-body .row .col-9{
+        width: 70% !important;
+    }
+    .viewAllData .btn{
+        background-color:#064885;
+        color: #fff;
+        top: -22px;
+      }
+}

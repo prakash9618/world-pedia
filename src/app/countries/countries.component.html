@@ -1,0 +1,90 @@
+<div class="main-container">
+    <div class="header">
+        <div class="nav-bar">
+            <div class="sub-nav-bar d-flex justify-content-between">
+                <div><img src="assets/worldpedialogo-removebg.jpg" alt="logo" width="170"></div>
+                <div class="text-end">
+                    <p>Best list of all countries with their flags</p>
+                    <p>on the whole internet!!</p>
+                </div>
+            </div>
+        </div>
+        <div class="search-bar rounded-1 d-flex">
+            <input class="form-control shadow-none" type="text" [(ngModel)]="text">
+            <button (click)="searchMyCountry()" [disabled]="text==''" type="button"
+                class="btn btn-primary rounded-1 shadow-none">SEARCH</button>
+        </div>
+    </div>
+    <div class="text-center viewAllData" *ngIf="!show">
+        <button (click)="viewAllData()" type="button" class="btn btn-primary rounded-1 shadow-none">Get All Countries</button>
+    </div>
+    <div class="coutries-container row">
+        <div class="col-xl-3 col-12 col-sm-6 col-lg-4 card-container" *ngFor="let country of paginationCountries;">
+            <div (click)="countryInfo(country)" class="card shadow-sm border-2" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <img [src]="country['flags']['png']" height="120" class="card-img border border-1" alt="logo">
+                <div class="card-body pb-2 px-0">
+                    <p class="m-0">{{country['name']['common']}}</p>
+                    <p class="m-0" style="font-size: 15px;color: rgb(137, 136, 136);">{{country['continents'][0]}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <h4 *ngIf="statusText != ''">{{statusText}}</h4>
+            <div *ngIf="spinner" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            </div>
+        </div>
+        <div class="text-end pt-3" *ngIf="show">
+            <button *ngIf="!load" (click)="showMore()" class="btn btn-primary rounded-1 shadow-none show-more">Show More</button>
+            <button *ngIf="load" class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="sub-footer d-flex justify-content-between">
+            <div><a href=""><img src="assets/worldpedialogo.jpg" alt="logo" width="170"></a></div>
+            <div class="text-end">
+                <input class="form-control shadow-none rounded-1" type="email" placeholder="Enter Email">
+                <button class="btn btn-primary shadow-none rounded-1">SUBSCRIBE</button>
+            </div>
+        </div>
+        <div class="sub-footer d-flex justify-content-between">
+            <p><a style="text-decoration: none;" href="#">Worldpedia Inc</a></p>
+            <p>2023 | All Rights Reserved</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-between">
+                    <p class="fw-bold m-0">{{myCountry?.name?.common}}</p>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="flag">
+                    <img class="rounded-1 border border-1 my-3" [src]="myCountry?.flags?.png" width="200" height="110" alt="flag">
+                </div>
+                <div class="row">
+                    <p class="col-3 fw-bold">Capital</p>
+                    <p class="col-9">{{myCountry?.capital[0]}}</p>
+                    <p class="col-3 fw-bold">Continent</p>
+                    <p class="col-9">{{myCountry?.continents[0]}}</p>
+                    <p class="col-3 fw-bold">Currency</p>
+                    <p class="col-9">{{currencies}}</p>
+                    <p class="col-3 fw-bold">Languages</p>
+                    <p class="col-9">{{languages}}</p>
+                    <p class="col-3 fw-bold">Population</p>
+                    <p class="col-9">{{myCountry?.population}}</p>
+                    <p class="col-3 fw-bold">Timezone</p>
+                    <p class="col-9">{{myCountry?.timezones[0]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
