@@ -10,10 +10,10 @@ export class CountryService {
   constructor(private http:HttpClient) { }
 
   getCountries(){
-    return this.http.get(`${environment.baseUrl}/v3.1/all`);
+    return this.http.get(`${environment.baseUrl}/all`);
   }
 
   searchCountry(searchItem:any){
-    return this.http.get(`${environment.baseUrl}/v3.1/name/`+searchItem);
+    return this.http.get(`${environment.baseUrl}/name/`+searchItem);
   }
 }
