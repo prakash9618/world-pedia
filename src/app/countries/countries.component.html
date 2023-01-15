@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="text-end pt-3" *ngIf="show">
-            <button *ngIf="!load" (click)="showMore()" class="btn btn-primary rounded-1 shadow-none show-more">Show More</button>
+            <button *ngIf="!load && !spinner" (click)="showMore()" class="btn btn-primary rounded-1 shadow-none show-more">Show More</button>
             <button *ngIf="load" class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
