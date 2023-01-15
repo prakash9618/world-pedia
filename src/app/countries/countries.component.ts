@@ -92,6 +92,8 @@ export class CountriesComponent implements OnInit {
   }
 
   countryInfo(country:any){
+    this.languages = ""
+    this.currencies = ""
     this.myCountry = country;
     for (const key in this.myCountry?.languages) {
       this.languages += this.myCountry?.languages[key]+', ';
