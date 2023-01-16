@@ -32,6 +32,10 @@
   position: relative;
   top: -19px;
 }
+.card-body .btn{
+    background-color: #064885 !important;
+    top: 20px;
+}
 .sub-footer .btn{
     background-color: #064885 !important;
     border-color: #064885 !important;

@@ -9,6 +9,7 @@ import { CountryService } from '../service/country.service';
 export class CountriesComponent implements OnInit {
 
   text='';
+  email = '';
   countries = [];
   paginationCountries = [];
   myCountry:any;
@@ -103,6 +104,11 @@ export class CountriesComponent implements OnInit {
      this.currencies += this.myCountry?.currencies[key].name+', ';
     }
    this.currencies = this.currencies.slice(0,-2);
+  }
+
+  alertMsg(){
+    alert('Coming Soon!!');
+    this.email = '';
   }
 
 }

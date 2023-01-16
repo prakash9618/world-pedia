@@ -10,22 +10,28 @@
             </div>
         </div>
         <div class="search-bar rounded-1 d-flex">
-            <input class="form-control shadow-none" type="text" [(ngModel)]="text">
+            <input placeholder="Seach any country.." class="form-control shadow-none" type="text" [(ngModel)]="text">
             <button (click)="searchMyCountry()" [disabled]="text==''" type="button"
                 class="btn btn-primary rounded-1 shadow-none">SEARCH</button>
         </div>
     </div>
     <div class="text-center viewAllData" *ngIf="!show">
-        <button (click)="viewAllData()" type="button" class="btn btn-primary rounded-1 shadow-none">Get All Countries</button>
+        <button (click)="viewAllData()" type="button" class="btn btn-primary rounded-1 shadow-none">Get All
+            Countries</button>
     </div>
     <div class="coutries-container row">
         <div class="col-xl-3 col-12 col-sm-6 col-lg-4 card-container" *ngFor="let country of paginationCountries;">
             <div (click)="countryInfo(country)" class="card shadow-sm border-2" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 <img [src]="country['flags']['png']" height="120" class="card-img border border-1" alt="logo">
-                <div class="card-body pb-2 px-0">
-                    <p class="m-0">{{country['name']['common']}}</p>
-                    <p class="m-0" style="font-size: 15px;color: rgb(137, 136, 136);">{{country['continents'][0]}}</p>
+                <div class="card-body pb-2 px-0 d-flex justify-content-between">
+                    <div>
+                        <p class="m-0">{{country['name']['common']}}</p>
+                        <p class="m-0" style="font-size: 15px;color: rgb(137, 136, 136);">{{country['continents'][0]}}</p>
+                    </div>
+                    <div class="position-absolute" style="right: 12px;">
+                        <button type="button" class="btn btn-primary py-1 rounded-1 shadow-none position-relative">Details</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,7 +41,8 @@
             </div>
         </div>
         <div class="text-end pt-3" *ngIf="show">
-            <button *ngIf="!load && paginationCountries?.length != 0" (click)="showMore()" class="btn btn-primary rounded-1 shadow-none show-more">Show More</button>
+            <button *ngIf="!load && paginationCountries?.length != 0" (click)="showMore()"
+                class="btn btn-primary rounded-1 shadow-none show-more">Show More</button>
             <button *ngIf="load" class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
@@ -46,8 +53,8 @@
         <div class="sub-footer d-flex justify-content-between">
             <div><a href=""><img src="assets/worldpedialogo.jpg" alt="logo" width="170"></a></div>
             <div class="text-end">
-                <input class="form-control shadow-none rounded-1" type="email" placeholder="Enter Email">
-                <button class="btn btn-primary shadow-none rounded-1">SUBSCRIBE</button>
+                <input [(ngModel)]="email" class="form-control shadow-none rounded-1" type="email" placeholder="Enter Email">
+                <button [disabled]="email == ''" (click)="alertMsg()" class="btn btn-primary shadow-none rounded-1">SUBSCRIBE</button>
             </div>
         </div>
         <div class="sub-footer d-flex justify-content-between">
@@ -68,7 +75,8 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="flag">
-                    <img class="rounded-1 border border-1 my-3" [src]="myCountry?.flags?.png" width="200" height="110" alt="flag">
+                    <img class="rounded-1 border border-1 my-3" [src]="myCountry?.flags?.png" width="200" height="110"
+                        alt="flag">
                 </div>
                 <div class="row">
                     <p class="col-3 fw-bold">Capital</p>
