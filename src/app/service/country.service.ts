@@ -7,7 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class CountryService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    console.log('a');
+   }
 
   getCountries(){
     return this.http.get(`${environment.baseUrl}/all`);
